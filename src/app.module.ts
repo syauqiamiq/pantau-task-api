@@ -7,7 +7,6 @@ import { redisConfig } from './common/config/redis.config';
 import { databaseConfig } from './databases/config';
 import { AuthModule } from './modules/v1/auth/auth.module';
 import { UsersModule } from './modules/v1/users/users.module';
-import { RedisCacheService } from './common/services/redis.service';
 
 @Module({
   imports: [

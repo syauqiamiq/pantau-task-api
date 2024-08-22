@@ -1,4 +1,3 @@
-import { CacheStore } from '@nestjs/cache-manager';
 import {
   BadRequestException,
   Injectable,
@@ -8,13 +7,13 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
 import { IJwtPayload } from 'src/common/interfaces/jwt.interface';
+import { RedisCacheService } from 'src/common/services/redis.service';
 import { config } from 'src/config';
 import { User } from 'src/databases/entities/user.entity';
 import { IUser } from 'src/databases/interfaces/user.interface';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { LoginPayloadV1Dto } from './dto/request/login-request.dto';
-import { RedisCacheService } from 'src/common/services/redis.service';
 
 @Injectable()
 export class AuthService {
@@ -78,7 +77,6 @@ export class AuthService {
         refreshToken: refreshToken,
       };
     } catch (error) {
-      console.error('Error:', error);
       throw new InternalServerErrorException('Server Error');
     }
   }

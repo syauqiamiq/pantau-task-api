@@ -1,8 +1,10 @@
-import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
+import { IUserAttachment } from '../interfaces/user-attachment.interface';
+import { IUserCredential } from '../interfaces/user-credential.interface';
 import { IUser } from '../interfaces/user.interface';
 import { BaseEntity } from './base.entity';
+import { UserAttachment } from './user-attachment.entity';
 import { UserCredential } from './user-credential.entity';
-import { IUserCredential } from '../interfaces/user-credential.interface';
 
 @Entity('users')
 export class User extends BaseEntity implements IUser {
@@ -32,4 +34,7 @@ export class User extends BaseEntity implements IUser {
 
   @OneToOne(() => UserCredential, (data) => data.user)
   userCredential: IUserCredential;
+
+  @OneToMany(() => UserAttachment, (data) => data.user)
+  userAttachments: IUserAttachment[];
 }

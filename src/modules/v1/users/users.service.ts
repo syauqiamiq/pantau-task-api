@@ -12,7 +12,12 @@ export class UsersService {
   ) {}
 
   async login() {
-    const data = await this.userRepositories.find();
+    const data = await this.userRepositories.find({
+      relations: {
+        userCredential: true,
+        userAttachments: true,
+      },
+    });
 
     return data;
   }

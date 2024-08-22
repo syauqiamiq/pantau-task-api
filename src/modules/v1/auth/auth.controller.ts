@@ -1,9 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { IApiResponse } from 'src/common/interfaces/response.interface';
 import { AuthService } from './auth.service';
 import { LoginPayloadV1Dto } from './dto/request/login-request.dto';
-import { IApiResponse } from 'src/common/interfaces/response.interface';
-import { LoginResponseDto } from './dto/response/login-response.dto';
 import { RegisterPayloadV1Dto } from './dto/request/register-request.dto';
+import { LoginResponseDto } from './dto/response/login-response.dto';
 import { RegisterResponseDto } from './dto/response/register-response.dto';
 
 @Controller({
