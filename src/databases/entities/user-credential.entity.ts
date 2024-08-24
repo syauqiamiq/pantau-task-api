@@ -10,7 +10,7 @@ export class UserCredential extends BaseEntity implements IUserCredential {
     name: 'user_id',
     type: 'integer',
   })
-  userId: string;
+  userId: number | any;
 
   @Column({
     name: 'password',

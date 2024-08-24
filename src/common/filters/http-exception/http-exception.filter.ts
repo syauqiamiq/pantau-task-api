@@ -39,6 +39,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     const logEntry = {
       level: 'error',
+      clientIp: request.ip,
       timestamp: new Date().toISOString(),
       requestId: requestId,
       method: request.method,
